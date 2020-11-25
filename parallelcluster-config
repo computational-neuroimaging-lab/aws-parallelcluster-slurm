@@ -19,9 +19,9 @@ master_instance_type = t2.small
 
 post_install = https://parallelcluster-slurm-cluster.s3.amazonaws.com/init.sh
 
-# [vpc default]
-# vpc_id = vpc-014d69d1b89826111
-# master_subnet_id = subnet-059be4ca733e5e49e
+[vpc default]
+vpc_id = vpc-id
+master_subnet_id = subnet-id
 
 [ebs shared]
 shared_dir = /shared
