@@ -1,0 +1,38 @@
+[aws]
+aws_region_name = us-east-1
+
+[aliases]
+ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
+
+[global]
+cluster_template = default
+update_check = true
+sanity_check = true
+
+[cluster default]
+key_name = ssh-key-name
+base_os = ubuntu1804
+scheduler = slurm
+vpc_settings = default
+queue_settings = compute
+master_instance_type = t2.small
+
+post_install = https://parallelcluster-slurm-cluster.s3.amazonaws.com/init.sh
+
+# [vpc default]
+# vpc_id = vpc-014d69d1b89826111
+# master_subnet_id = subnet-059be4ca733e5e49e
+
+[ebs shared]
+shared_dir = /shared
+volume_type = gp2
+volume_size = 100
+
+[queue compute]
+enable_efa = false
+compute_resource_settings = default
+
+[compute_resource default]
+instance_type = m5a.xlarge
+min_count = 0
+max_count = 30
