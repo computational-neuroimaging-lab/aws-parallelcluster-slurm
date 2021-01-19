@@ -14,6 +14,7 @@ key_name = ssh-key-name
 base_os = ubuntu1804
 scheduler = slurm
 vpc_settings = default
+ebs_settings = shared
 queue_settings = compute
 master_instance_type = t2.small
 
